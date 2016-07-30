@@ -1,6 +1,6 @@
 ---
-- name: Hard set the hostname
-  hostname: name={{ ansible_fqdn }}
+#- name: Hard set the hostname
+#  hostname: name={{ ansible_fqdn }}
 
 - name: Add host entry
   lineinfile:
