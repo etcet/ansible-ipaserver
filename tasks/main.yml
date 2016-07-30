@@ -45,5 +45,8 @@
     {{ '' if ipaserver_ui_redirect | default(True) else '--no-ui-redirect' }}
     creates=/etc/ipa/default.conf
 
+- name: Disable DNS recursion from outside the private network
+  lineinfile: dest=/etc/named.conf regexp='allow-recursion' line='\tallow-recursion { 192.168.0.0/16; };'
+
 - include: firewalld.yml
   when: ipaserver_manage_firewalld
