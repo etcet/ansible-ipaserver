@@ -1,3 +1,7 @@
 ---
+
 - name: reload firewalld
   command: firewall-cmd --reload
+
+- name: reload named-pkcs11
+  service: named=named-pkcs11 state=reloaded

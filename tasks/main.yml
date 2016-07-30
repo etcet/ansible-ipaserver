@@ -47,6 +47,7 @@
 
 - name: Disable DNS recursion from outside the private network
   lineinfile: dest=/etc/named.conf regexp='allow-recursion' line='\tallow-recursion { 192.168.0.0/16; };'
+  notify: reload named-pkcs11
 
 - include: firewalld.yml
   when: ipaserver_manage_firewalld
